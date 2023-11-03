@@ -2,13 +2,14 @@
 
 ![Next.js Version](https://img.shields.io/badge/next.js-14.0.0-blue.svg)
 ![Tailwind CSS Version](https://img.shields.io/badge/tailwindcss-^2.2.19-blueviolet)
-![Deployed on Vercel](https://vercelbadge.vercel.app/api/motypes/ai-meeting-summary-app)
 ![Pinecone](https://img.shields.io/badge/pinecone-integrated-green)
 ![OpenAI](https://img.shields.io/badge/openai-integrated-red)
 ![Supabase](https://img.shields.io/badge/supabase-integrated-orage)
 ![NextAuth.js](https://img.shields.io/badge/nextauth.js-integrated-yellowgreen)
 
 AI Meeting Summary App is a next-generation tool designed to revolutionize the way individuals and teams manage their meeting content. It allows users to upload notes, audio, and video, then leverages advanced AI technology to provide concise summaries, transcripts, and the ability to query meeting notes. The app streamulates productivity by offering features such as storing, exporting, emailing, and sharing summaries.
+
+![ai-summary-app-main](https://github.com/mojalil/ai-summary-app/assets/10572843/b97378fc-e97a-483e-a48a-5c7c60557ecc)
 
 ## Features
 
