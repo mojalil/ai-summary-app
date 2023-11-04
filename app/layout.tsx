@@ -29,7 +29,7 @@ export default function RootLayout({
         >
           <Header />
           {/* Navbar and children should sit side by side */}
-          <div className="flex">
+          <div className="flex p-4">
             {/* Todo: Add Nav bar for addtional menu items */}
             {/* <Navbar /> */}
             {children}
