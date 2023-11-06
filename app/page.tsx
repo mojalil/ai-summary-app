@@ -1,3 +1,5 @@
+import Upload from "@/components/Upload";
+
 const SummaryPage = () => {
   return (
     <div className="container mx-auto lg:w-1/2">
@@ -8,6 +10,7 @@ const SummaryPage = () => {
       <p className="leading-7 [&:not(:first-child)]:mt-6">
         To get started upload your documents, video and audio files to create a summary of your notes.
       </p>
+      <Upload />
     </div>
     </div>
   )
