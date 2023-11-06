@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -29,7 +29,7 @@ export default function RootLayout({
         >
           <Header />
           {/* Navbar and children should sit side by side */}
-          <div className="flex p-4">
+          <div className="flex flex-1 p-4">
             {/* Todo: Add Nav bar for addtional menu items */}
             {/* <Navbar /> */}
             {children}
