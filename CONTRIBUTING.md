@@ -10,6 +10,8 @@ We welcome contributions to SummitAI! If you would like to contribute to the dev
     - [Process Video](#process-video)
       - [Current Status](#current-status)
       - [To Do](#to-do)
+    - [Nice To Have](#nice-to-have)
+      - [To Do](#to-do-1)
   - [Getting Help](#getting-help)
   - [Coding Standards](#coding-standards)
   - [Code Reviews](#code-reviews)
@@ -49,6 +51,12 @@ This feature allows users to upload a video file, from which the audio is then e
 - [ ] Implement security measures for file upload
 - [ ] Write tests for video processing and transcription features
 - [ ] Document the feature's development progress and usage
+
+### Nice To Have
+
+#### To Do
+- [ ] Add drag and drop video
+
 
 ## Getting Help
 
