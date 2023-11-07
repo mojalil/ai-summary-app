@@ -1,6 +1,7 @@
 "use client";
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const Upload = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -14,11 +15,34 @@ const Upload = () => {
     }
   };
 
-  const handleSubmit = async () => {};
+  // handling video for now, we will update this to handle any files
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!file) return;
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch("/api/video/upload", {
+      method: "POST",
+      body: formData,
+    });
+
+    console.log("res", res);
+
+    if (res.ok) {
+      const data = await res.json();
+      console.log("data", data);
+    } else {
+      console.log("error uploading file");
+    }
+  };
 
   return (
     <div>
-      <input type="file" onChange={handleFileUpload} />
+      <form onSubmit={handleSubmit}>
+        <input type="file" onChange={handleFileUpload} />
+        <Button type="submit">Upload</Button>
+      </form>
     </div>
   );
 };
