@@ -30,7 +30,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
 //   extract audio from video
 
   console.log("extracting audio")
-  await extractAudioFromVideo(path, "/tmp/audio.mp3")
+
+  //  Create filename for audio file
+  const audioPath = `/tmp/${file.name}.mp3`;
+  const extractionResult = await extractAudioFromVideo(path, audioPath)
+  console.log("extraction result", extractionResult)
 
    //    Return a 200 response
 

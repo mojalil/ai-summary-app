@@ -16,6 +16,7 @@ export const extractAudioFromVideo = (
       .on("end", () => {
         console.log("Audio extraction complete");
         // The extracted audio is now at outputPath, you can now proceed with transcription
+        resolve(audioPath);
       })
 
       .on("error", (err: any) => reject(err))
