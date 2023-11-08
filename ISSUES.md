@@ -1,6 +1,8 @@
 
 
 ### FFMPEG Issues 
+Note: That for production deployment , we may need to switch to another api to extract audio
+givent that ffmpeg may not be installed and we may not have control over the deployment on vercels server.
 
 If you run into issues with fluent-ffmpeg you'll need to:
 1. make sure to install ffmpeg on your machine so that the binary is available
@@ -33,3 +35,4 @@ const nextConfig = {
 module.exports = nextConfig;
 
 ```
+
