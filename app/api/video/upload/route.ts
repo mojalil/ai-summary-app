@@ -38,10 +38,19 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
    //    Return a 200 response
 
-    return new NextResponse("File uploaded",{
-        status: 200,
-        headers: {
-            "Content-Type": "text/plain",
-        },
-    })
+  //  return json response
+  return new NextResponse(JSON.stringify({audioPath}), {
+    status: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+
+
+    // return new NextResponse("File uploaded",{
+    //     status: 200,
+    //     headers: {
+    //         "Content-Type": "text/plain",
+    //     },
+    // })
 }

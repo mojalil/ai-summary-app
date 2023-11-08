@@ -3,7 +3,11 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 
-const Upload = () => {
+type UploadProps = {
+  setIsUploaded: (isUploaded: boolean) => void;
+};
+
+const Upload = ({ setIsUploaded }: UploadProps) => {
   const [file, setFile] = useState<File | null>(null);
 
   const handleFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -29,10 +33,15 @@ const Upload = () => {
 
     console.log("res", res);
 
-    if (res.ok) {
+    console.log(setIsUploaded);
+
+    if (res.status === 200) {
       const data = await res.json();
       console.log("data", data);
+      setIsUploaded(true);
     } else {
+      setIsUploaded(false);
+
       console.log("error uploading file");
     }
   };
