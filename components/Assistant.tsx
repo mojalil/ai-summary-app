@@ -20,7 +20,7 @@ const Assistant = () => {
   // Render the search/upload UI if there's no user input yet
   if (!hasInput) {
     return (
-      <div className="assistant bg-white rounded shadow p-4 flex flex-col">
+      <div className="rounded p-4 flex flex-col">
         <h2 className="text-lg font-bold mb-4">Where would you like to go?</h2>
         <form onSubmit={handleSearch}>
           <input
