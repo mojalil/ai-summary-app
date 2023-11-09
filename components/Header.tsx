@@ -1,5 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { APP_NAME } from "@/constants";
+import { APP_NAME } from "@/lib/constants";
 
 const Header = () => {
   return (
