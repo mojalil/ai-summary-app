@@ -1,42 +1,68 @@
-'use client';
+"use client";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { InputForm } from "./InputForm";
+
+const FormSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+});
 
 const Assistant = () => {
-    const [hasInput, setHasInput] = useState(false);
-    const handleSearch = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setHasInput(true);
-    }
-    const handleClear = (e : FormEvent<HTMLFormElement> ) => {
-        e.preventDefault();
-        setHasInput(false);
-    }
+  const [conversationStarted, setConversationStarted] = useState(false);
+  const [conversationInput, setConversationInput] = useState(""); // [1
 
-    const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault();
-        setHasInput(true);
-    }
+  //   update the searchQuery state variable whenever the user types in the search input
+
+  const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
+    setConversationInput(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setConversationStarted(true);
+
+    console.log("Input submitted!");
+    console.log(conversationInput);
+
+    // reset the search input
+    setConversationInput("");
+  };
+
+  const handleClear = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setConversationStarted(false);
+  };
+
+  const handleFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    setConversationStarted(true);
+  };
+
+  console.log(`conversationInput: ${conversationInput}`);
 
   // Render the search/upload UI if there's no user input yet
-  if (!hasInput) {
+  if (!conversationStarted) {
     return (
-      <div className="rounded p-4 flex flex-col">
-        <h2 className="text-lg font-bold mb-4">Where would you like to go?</h2>
-        <form onSubmit={handleSearch}>
-          <input
-            type="text"
-            placeholder="Start typing..."
-            className="mb-4 p-2 border border-gray-300 rounded"
-          />
-          <input
-            type="file"
-            onChange={handleFileUpload}
-            className="mb-4 p-2 border border-gray-300 rounded"
-          />
-          <button type="submit" className="p-2 bg-blue-500 text-white rounded">
-            Submit
-          </button>
-        </form>
+      <div className="flex h-screen items-center">
+        <div className="rounded p-4 flex flex-col w-full">
+          <h2 className="text-2xl font-bold mb-4">
+            What would you like to know?
+          </h2>
+          <form onSubmit={handleSubmit}>
+
+            <input
+              onChange={handleInput}
+              type="text"
+              placeholder="Start typing or upload a file..."
+              className="mb-4 bg-transparent focus:outline-none rounded text-2xl w-full"
+            />
+          </form>
+        </div>
       </div>
     );
   }
