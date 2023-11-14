@@ -4,18 +4,16 @@ import { useDropzone } from "react-dropzone";
 import AssistantMessage from "./AssistantMessage";
 import UserMessage from "./UserMessage";
 import UserInput from "./UserInput";
+import { Message } from "@/lib/types";
 
-type Message = {
-  text: string;
-  author: "user" | "assistant";
-};
+
 
 const Assistant = () => {
   const [conversationInput, setConversationInput] = useState("");
   const [conversation, setConversation] = useState<Message[]>([]);
 
-  const handleUpdateConversation = (message: string, author: string) => {
-    setConversation((prev) => [...prev, { text: message, author: author }]);
+  const handleUpdateConversation = ({text, author} : Message) => {
+    setConversation((prev) => [...prev, { text, author}]);
   }
 
   const onDrop = useCallback((acceptedFiles: File[]) => {

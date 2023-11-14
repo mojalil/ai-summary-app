@@ -1,10 +1,11 @@
+import { Message } from "@/lib/types";
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 type UserInputProps = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   handleInput: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleUpdateConversation: (message: string, author: string) => void;
+  handleUpdateConversation: (message: Message)=> void;
   conversationInput: string;
 };
 
@@ -28,7 +29,7 @@ const UserInput = ({
         //   { text: `Uploaded file: ${file.name}`, author: "assistant" },
         // ]);
 
-        handleUpdateConversation(`Uploaded file: ${file.name}`, "assistant");
+        handleUpdateConversation({text: `Uploaded file: ${file.name}`, author: "assistant" });
       }, []);
 
   const { getRootProps, getInputProps } = useDropzone({
