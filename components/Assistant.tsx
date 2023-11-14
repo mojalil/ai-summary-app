@@ -78,8 +78,9 @@ const Assistant = () => {
   return (
     <div className="flex flex-col justify-between h-full">
       <div className=" overflow-auto">
-        <AssistantMessage message="What would you like to know?" isLast />
+        <AssistantMessage message="What would you like to know ?" isLast={false} />
         <UserMessage message={conversationInput} />
+        <AssistantMessage message="What would you like to know ?" isLast={true} />
       </div>
       <UserInput />
     </div>

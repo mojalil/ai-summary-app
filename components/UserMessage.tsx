@@ -1,10 +1,13 @@
+import { cn } from "@/lib/utils"
+
 type UserMessageProps = {
     message: string
+    isLast?: boolean
 }
 
-const UserMessage = ({ message }: UserMessageProps) => {
+const UserMessage = ({ message, isLast }: UserMessageProps) => {
     return (
-        <div className="text-xl text-gray-500 pl-9 my-2">
+        <div className={cn("text-xl pl-9 my-2", isLast ? "font-bold" : "text-gray-400")}>
         {message}
       </div>
     )

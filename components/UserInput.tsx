@@ -38,7 +38,7 @@ const UserInput = () => {
         >
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col w-full p-4 rounded-lg"
+          className="flex flex-col w-full pl-9 rounded-lg"
         >
           {/* This input is hidden visually but remains accessible, it's needed for the file drop to work */}
           <input {...getInputProps()} className="hidden" />
@@ -47,7 +47,7 @@ const UserInput = () => {
             onChange={handleInput}
             type="text"
             placeholder="Start typing or upload a file..."
-            className="mb-4 bg-transparent focus:outline-none rounded text-xl w-full"
+            className="bg-transparent focus:outline-none rounded text-xl w-full"
           />
         </form>
         </div>
