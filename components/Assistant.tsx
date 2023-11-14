@@ -48,7 +48,7 @@ const Assistant = () => {
   // Render the search/upload UI if there's no user input yet
   if (!conversationStarted) {
     return (
-      <div className="flex h-screen items-center">
+      <div className="flex h-full items-center">
         <div className="rounded p-4 flex flex-col w-full">
           <h2 className="text-2xl font-bold mb-4">
             What would you like to know?

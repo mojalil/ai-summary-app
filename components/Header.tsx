@@ -4,6 +4,7 @@ import { APP_NAME } from "@/lib/constants";
 const Header = () => {
   return (
     // Header will be fixed at the top of the page and have minium height
+    <div className="h-18">
     <div className="border-b border-primary/10">
     <div className="m-3 p-1 flex justify-between">
       <div className=" text-3xl font-bold text-primary">
@@ -18,6 +19,7 @@ const Header = () => {
           <AvatarFallback>Mo</AvatarFallback>
         </Avatar>
       </div>
+    </div>
     </div>
     </div>
   );

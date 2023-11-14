@@ -27,12 +27,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
+          <div className="flex flex-col h-screen">
+          <Header/>
           {/* Navbar and children should sit side by side */}
           <div className="flex flex-1 p-4">
             {/* Todo: Add Nav bar for addtional menu items */}
             {/* <Navbar /> */}
             {children}
+          </div>
           </div>
         </ThemeProvider>
       </body>
