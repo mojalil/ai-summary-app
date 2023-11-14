@@ -17,19 +17,9 @@ const UserInput = ({
 }: UserInputProps) => {
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
-        // Handle the files here
         console.log(acceptedFiles);
-        // Perform actions such as setting state, uploading files, etc.
-        // Assuming you only handle one file at a time
         const file = acceptedFiles[0];
-    
-        // Add file upload message to the conversation
-        // setConversation((prevConversation) => [
-        //   ...prevConversation,
-        //   { text: `Uploaded file: ${file.name}`, author: "assistant" },
-        // ]);
-
-        handleUpdateConversation({text: `Uploaded file: ${file.name}`, author: "assistant" });
+        handleUpdateConversation({text: `Uploaded file: ${file.name}`, author: "assistant", type: "file" });
       }, []);
 
   const { getRootProps, getInputProps } = useDropzone({

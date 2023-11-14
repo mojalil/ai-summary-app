@@ -12,21 +12,20 @@ const Assistant = () => {
   const [conversationInput, setConversationInput] = useState("");
   const [conversation, setConversation] = useState<Message[]>([]);
 
-  const handleUpdateConversation = ({text, author} : Message) => {
-    setConversation((prev) => [...prev, { text, author}]);
+  const handleUpdateConversation = ({text, author, type} : Message) => {
+    setConversation((prev) => [...prev, { text, author, type}]);
   }
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     // Handle the files here
     console.log(acceptedFiles);
-    // Perform actions such as setting state, uploading files, etc.
-    // Assuming you only handle one file at a time
+
     const file = acceptedFiles[0];
 
     // Add file upload message to the conversation
     setConversation((prevConversation) => [
       ...prevConversation,
-      { text: `Uploaded file: ${file.name}`, author: "assistant" },
+      { text: `Uploaded file: ${file.name}`, author: "assistant", type: "file" },
     ]);
   }, []);
 
@@ -53,6 +52,7 @@ const Assistant = () => {
         {
           text: "That's a great question! Here's what I found...",
           author: "assistant",
+          type: "text",
         },
       ]);
     }, 1000);
@@ -106,6 +106,7 @@ const Assistant = () => {
               key={index}
               message={message.text}
               isLast={index === conversation.length - 1}
+              type={message.type}
             />
           );
         })}
