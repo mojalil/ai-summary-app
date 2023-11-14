@@ -47,7 +47,7 @@ const UserInput = () => {
             onChange={handleInput}
             type="text"
             placeholder="Start typing or upload a file..."
-            className="bg-transparent focus:outline-none rounded text-xl w-full"
+            className="bg-transparent focus:outline-none rounded text-xl w-full font-semibold"
           />
         </form>
         </div>

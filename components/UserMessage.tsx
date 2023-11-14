@@ -7,7 +7,7 @@ type UserMessageProps = {
 
 const UserMessage = ({ message, isLast }: UserMessageProps) => {
     return (
-        <div className={cn("text-xl pl-9 my-2", isLast ? "font-bold" : "text-gray-400")}>
+        <div className={cn("text-xl pl-9 my-2", isLast ? "font-semibold" : "text-gray-400 font-semibold")}>
         {message}
       </div>
     )

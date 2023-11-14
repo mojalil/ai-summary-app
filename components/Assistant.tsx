@@ -68,7 +68,7 @@ const Assistant = () => {
             onChange={handleInput}
             type="text"
             placeholder="Start typing or upload a file..."
-            className="mb-4 bg-transparent focus:outline-none rounded text-2xl w-full"
+            className="mb-4 bg-transparent focus:outline-none rounded text-2xl w-full font-semibold"
           />
         </form>
       </div>
