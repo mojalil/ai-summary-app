@@ -3,10 +3,11 @@ import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import AssistantMessage from "./AssistantMessage";
 import UserMessage from "./UserMessage";
+import UserInput from "./UserInput";
 
 const Assistant = () => {
   const [conversationStarted, setConversationStarted] = useState(false);
-  const [conversationInput, setConversationInput] = useState(""); // [1
+  const [conversationInput, setConversationInput] = useState("");
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     // Handle the files here
@@ -31,7 +32,7 @@ const Assistant = () => {
     console.log(conversationInput);
 
     // reset the search input
-    setConversationInput("");
+    // setConversationInput("");
   };
 
   const handleClear = (e: FormEvent<HTMLFormElement>) => {
@@ -47,7 +48,7 @@ const Assistant = () => {
   console.log(`conversationInput: ${conversationInput}`);
 
   // Render the search/upload UI if there's no user input yet
-  if (!true) {
+  if (!conversationStarted) {
     return (
       <div
         {...getRootProps()}
@@ -75,11 +76,12 @@ const Assistant = () => {
   }
 
   return (
-    <div className="assistant">
-      <AssistantMessage  message="Test Message" isLast/>
-      <UserMessage message="What were nike's sales like last month?"/>
-      <AssistantMessage  message="Test Message" isLast/>
-        <UserMessage message="What were nike's sales like last month?"/>
+    <div className="flex flex-col justify-between h-full">
+      <div className=" overflow-auto">
+        <AssistantMessage message="What would you like to know?" isLast />
+        <UserMessage message={conversationInput} />
+      </div>
+      <UserInput />
     </div>
   );
 };
