@@ -11,6 +11,8 @@ const Header = () => {
         {APP_NAME}
       </div>
       <div className="flex flex-none justify-end">
+        <div className="flex items-center gap-2">
+          <div className=" font-semibold text-gray-400">Mo Jalil</div>
         <Avatar>
           <AvatarImage
             src="https://avatars.githubusercontent.com/u/10572843?s=460&u=6f1c5d8b9a7c4b7b2c5a2c3a3c3d2c1d1e1f1&v=4"
@@ -18,6 +20,7 @@ const Header = () => {
           />
           <AvatarFallback>Mo</AvatarFallback>
         </Avatar>
+      </div>
       </div>
     </div>
     </div>

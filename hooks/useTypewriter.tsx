@@ -1,22 +1,23 @@
 import { useEffect, useState, useRef } from 'react';
 
-const useTypewriter = (message: string, speed: number = 100) => {
-  const [displayedMessage, setDisplayedMessage] = useState('');
-  const index = useRef(0);
+const useTypewriter = (text: string, delay: number = 100) => {
+    const [currentText, setCurrentText] = useState('');
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setDisplayedMessage((prev) => prev + message.charAt(index.current));
-      index.current += 1;
-      if (index.current === message.length) {
-        clearInterval(intervalId);
-      }
-    }, speed);
-
-    return () => clearInterval(intervalId);
-  }, [message, speed]);
-
-  return displayedMessage;
+    useEffect(() => {
+        if (currentIndex < text.length) {
+          const timeout = setTimeout(() => {
+            setCurrentText(prevText => prevText + text[currentIndex]);
+            setCurrentIndex(prevIndex => prevIndex + 1);
+          }, delay);
+      
+          return () => clearTimeout(timeout);
+        }
+      }, [currentIndex, delay, text]);
+  
+    // Typing logic goes here
+  
+    return <span>{currentText}</span>;
 };
 
 
