@@ -1,7 +1,7 @@
 const AssistantDisplay = () => {
     return (
-        <div>
-            <h1>Assistant Display</h1>
+        <div className="">
+            <div className="text-xl font-semibold text-gray-400">Assistant Display</div>
         </div>
     );
 }
